@@ -16,7 +16,7 @@ interface RegisterUseCaseResponse {
   user: User;
 }
 
-export class RegistertUseCase {
+export class RegisterUseCase {
   constructor(private usersRepository: UsersRepository) {}
 
   async execute({

@@ -6,7 +6,7 @@ import { UsersRepository } from "@/repositories/users-repository";
 
 import { InvalidCredentialsError } from "./errors/invalid-credentials-error";
 
-interface AuthenticatedUseCaseRequest {
+interface AuthenticateUseCaseRequest {
   email: string;
   password: string;
 }
@@ -15,13 +15,13 @@ interface AuthenticateUserCaseResponse {
   user: User;
 }
 
-export class AuthenticatedUseCase {
+export class AuthenticateUseCase {
   constructor(private usersRepository: UsersRepository) {}
 
   async execute({
     email,
     password,
-  }: AuthenticatedUseCaseRequest): Promise<AuthenticateUserCaseResponse> {
+  }: AuthenticateUseCaseRequest): Promise<AuthenticateUserCaseResponse> {
     const user = await this.usersRepository.findByEmail(email);
 
     if (!user) {
